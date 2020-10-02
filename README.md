@@ -6,6 +6,7 @@
 * Terraform
 * Python3
 * boto3
+* kubectl
 
 ## Execute
 
