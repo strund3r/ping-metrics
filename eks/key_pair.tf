@@ -1,10 +1,11 @@
 resource "tls_private_key" "eks" {
   algorithm = "RSA"
+  rsa_bits  = 4096
 }
 
 # Creates a .pem with the content of 'tls_private_key'
 resource "local_file" "eks_pem" {
-  content         = tls_private_key.eks.public_key_openssh
+  content         = tls_private_key.eks.private_key_pem
   filename        = "eks.pem"
   file_permission = "0400"
 
