@@ -10,7 +10,7 @@ apply_s3: ## Creates an S3 Bucket
 
 .PHONY:
 destroy_s3: ## Destroys the S3 Bucket that was created with Terraform
-	@cd s3; echo "\e[41m          \e[4mDestroying S3\e[24m          \033[0m"; python3 empty-s3.py; terraform destroy -auto-approve
+	@cd s3; echo "\e[41m          \e[4mDestroying S3\e[24m          \033[0m"; terraform init; python3 empty-s3.py; terraform destroy -auto-approve
 
 .PHONY:
 apply_eks: ## Creates an EKS Cluster
@@ -18,7 +18,7 @@ apply_eks: ## Creates an EKS Cluster
  
 .PHONY:
 destroy_eks: ## Destroys the EKS Cluster that was created with Terraform
-	@cd eks; echo "\e[41m          \e[4mDestroying EKS\e[24m          \e[39m\033[0m"; terraform destroy -auto-approve
+	@cd eks; echo "\e[41m          \e[4mDestroying EKS\e[24m          \e[39m\033[0m"; terraform init; terraform destroy -auto-approve
 
 .PHONY:
 apply_monitoring: ## Deploy Monitoring
@@ -26,7 +26,7 @@ apply_monitoring: ## Deploy Monitoring
 
 .PHONY:
 destroy_monitoring: ## Destroys monitoring that was created with Terraform
-	@cd monitoring; echo "\e[41m          \e[4mDestroying Monitoring\e[24m          \033[0m"; terraform destroy -auto-approve
+	@cd monitoring; echo "\e[41m          \e[4mDestroying Monitoring\e[24m          \033[0m"; terraform init; terraform destroy -auto-approve
 
 .PHONY: help
 help: ## Show this help
