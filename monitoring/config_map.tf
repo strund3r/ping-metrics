@@ -14,14 +14,6 @@ resource "kubernetes_config_map" "prometheus" {
       - job_name: 'prometheus'
         static_configs:
         - targets: ['localhost:9090']
-      
-      - job_name: 'kube-state-metrics'
-        static_configs:
-        - targets: ['${kubernetes_service.kube_state_metrics.load_balancer_ingress[0].hostname}:8080']
-      
-      - job_name : 'cadvisor'
-        static_configs:
-        - targets: ['${kubernetes_service.cadvisor.load_balancer_ingress[0].hostname}:8080']
     EOF
   }
 }
