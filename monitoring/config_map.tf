@@ -75,21 +75,3 @@ resource "kubernetes_config_map" "ping_metrics" {
     kubernetes_namespace.monitoring
   ]
 }
-
-
-# resource "kubernetes_config_map" "ping_metrics" {
-#   metadata {
-#     name      = "ping-metrics"
-#     namespace = var.k8s_namespace
-#   }
-
-#   data = {
-#     "targets.json" = <<EOF
-#     {"cluster_targets":[{"ipAddress":"192.168.2.199","name":"kube-1"},{"ipAddress":"192.168.0.217","name":"kube-2"},{"ipAddress":"192.168.1.32","name":"kube-3"}]}
-#     EOF
-#   }
-
-#   depends_on = [
-#     kubernetes_namespace.monitoring
-#   ]
-# }
