@@ -1,7 +1,7 @@
 resource "kubernetes_deployment" "grafana" {
   metadata {
-    name = "grafana"
-    #namespace = var.k8s_namespace
+    name      = "grafana"
+    namespace = var.k8s_namespace
     labels = {
       app = "grafana"
     }
@@ -12,9 +12,15 @@ resource "kubernetes_deployment" "grafana" {
         app = "grafana"
       }
     }
+    strategy {
+      type = "RollingUpdate"
+      rolling_update {
+        max_surge = "1"
+      }
+    }
     template {
       metadata {
-        #namespace = var.k8s_namespace
+        namespace = var.k8s_namespace
         labels = {
           app = "grafana"
         }
@@ -30,12 +36,16 @@ resource "kubernetes_deployment" "grafana" {
       }
     }
   }
+
+  depends_on = [
+    kubernetes_namespace.monitoring
+  ]
 }
 
 resource "kubernetes_deployment" "prometheus" {
   metadata {
-    name = "prometheus"
-    #namespace = var.k8s_namespace
+    name      = "prometheus"
+    namespace = var.k8s_namespace
     labels = {
       app = "Prometheus"
     }
@@ -46,9 +56,15 @@ resource "kubernetes_deployment" "prometheus" {
         app = "Prometheus"
       }
     }
+    strategy {
+      type = "RollingUpdate"
+      rolling_update {
+        max_surge = "1"
+      }
+    }
     template {
       metadata {
-        #namespace = var.k8s_namespace
+        namespace = var.k8s_namespace
         labels = {
           app = "Prometheus"
         }
@@ -76,4 +92,8 @@ resource "kubernetes_deployment" "prometheus" {
       }
     }
   }
+
+  depends_on = [
+    kubernetes_namespace.monitoring
+  ]
 }
