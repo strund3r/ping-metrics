@@ -1,0 +1,1905 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "panels": [
+        {
+            "collapsed": false,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            },
+            "id": 4,
+            "panels": [],
+            "repeat": null,
+            "title": "Node 1 (${node-1})",
+            "type": "row"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Current ping time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 0,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 15,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-1\",instance=\"${node-1}:9100\",job=\"node-exporter\",source=\"${node-1}\",target=\"${node-2}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-1\",instance=\"${node-1}:9100\",job=\"node-exporter\",source=\"${node-1}\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Current Ping Time",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Best round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 6,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 2,
+            "interval": "1s",
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "format": "time_series",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Best RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Average round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 12,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 11,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_mean_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_mean_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Average RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Worst round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 18,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 13,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Worst RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Packet loss in percent",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 12,
+                "x": 6,
+                "y": 13
+            },
+            "hiddenSeries": false,
+            "id": 14,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-1\",instance=\"${node-1}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Packet Loss",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "percent",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "collapsed": false,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 22
+            },
+            "id": 8,
+            "panels": [],
+            "title": "Node 2 (${node-2})",
+            "type": "row"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Current ping time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 0,
+                "y": 23
+            },
+            "hiddenSeries": false,
+            "id": 17,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-2\",instance=\"${node-2}:9100\",job=\"node-exporter\",source=\"${node-2}\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-2\",instance=\"${node-2}:9100\",job=\"node-exporter\",source=\"${node-2}\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Current Ping Time",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Best round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 6,
+                "y": 23
+            },
+            "hiddenSeries": false,
+            "id": 6,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Best RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Average round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 12,
+                "y": 23
+            },
+            "hiddenSeries": false,
+            "id": 12,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_mean_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Average  RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Worst round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 12,
+                "w": 6,
+                "x": 18,
+                "y": 23
+            },
+            "hiddenSeries": false,
+            "id": 16,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Worst RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Packet loss in percent",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 12,
+                "x": 6,
+                "y": 35
+            },
+            "hiddenSeries": false,
+            "id": 18,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-2\",instance=\"${node-2}:9427\",ip=\"${node-3}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-3}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 3 (${node-3})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Packet Loss",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "percent",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "collapsed": false,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 44
+            },
+            "id": 10,
+            "panels": [],
+            "title": "Node 3 (${node-3})",
+            "type": "row"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Current ping time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 14,
+                "w": 6,
+                "x": 0,
+                "y": 45
+            },
+            "hiddenSeries": false,
+            "id": 21,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-3\",instance=\"${node-3}:9100\",job=\"node-exporter\",source=\"${node-3}\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_current_time_ms{hostname=\"node-3\",instance=\"${node-3}:9100\",job=\"node-exporter\",source=\"${node-3}\",target=\"${node-2}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Current Ping Time",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Best round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 14,
+                "w": 6,
+                "x": 6,
+                "y": 45
+            },
+            "hiddenSeries": false,
+            "id": 5,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_best_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Best RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Average round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 14,
+                "w": 6,
+                "x": 12,
+                "y": 45
+            },
+            "hiddenSeries": false,
+            "id": 22,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_mean_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_mean_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Average RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Worst round trip time in milliseconds",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 14,
+                "w": 6,
+                "x": 18,
+                "y": 45
+            },
+            "hiddenSeries": false,
+            "id": 20,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_rtt_worst_ms{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Worst RTT",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "ms",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "description": "Packet loss in percent",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 12,
+                "x": 6,
+                "y": 59
+            },
+            "hiddenSeries": false,
+            "id": 19,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": false
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.1",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-1}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-1}\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "legendFormat": "Target: Node 1 (${node-1})",
+                    "refId": "B"
+                },
+                {
+                    "expr": "ping_loss_percent{hostname=\"node-3\",instance=\"${node-3}:9427\",ip=\"${node-2}\",ip_version=\"4\",job=\"ping-metrics\",target=\"${node-2}\"}",
+                    "instant": false,
+                    "interval": "",
+                    "legendFormat": "Target: Node 2 (${node-2})",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Packet Loss",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "percent",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 26,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+        "list": []
+    },
+    "time": {
+        "from": "now-5m",
+        "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Ping Metrics",
+    "uid": "bBl-Bs5Mz",
+    "version": 2
+}
