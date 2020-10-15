@@ -6,7 +6,7 @@ resource "tls_private_key" "eks" {
 # Creates a .pem with the content of 'tls_private_key'
 resource "local_file" "eks_pem" {
   content         = tls_private_key.eks.private_key_pem
-  filename        = "eks.pem"
+  filename        = "${path.module}/../eks.pem"
   file_permission = "0400"
 
   depends_on = [
