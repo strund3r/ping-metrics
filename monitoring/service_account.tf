@@ -1,19 +1,27 @@
-resource "kubernetes_service_account" "kube-service-account" {
+resource "kubernetes_service_account" "ping_metrics" {
   metadata {
-    name = "kube-state-metrics"
+    name = "ping-metrics"
     labels = {
-      app = "kube-state-metrics"
+      app = "ping-metrics"
     }
-    #namespace = var.k8s_namespace
+    namespace = var.k8s_namespace
   }
+
+  depends_on = [
+    kubernetes_namespace.monitoring
+  ]
 }
 
-resource "kubernetes_service_account" "cadvisor-service-account" {
+resource "kubernetes_service_account" "node_exporter" {
   metadata {
-    name = "cadvisor"
+    name = "node-exporter"
     labels = {
-      app = "cadvisor"
+      app = "node-exporter"
     }
-    #namespace = var.k8s_namespace
+    namespace = var.k8s_namespace
   }
+
+  depends_on = [
+    kubernetes_namespace.monitoring
+  ]
 }
