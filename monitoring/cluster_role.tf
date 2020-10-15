@@ -1,9 +1,8 @@
-resource "kubernetes_cluster_role" "kube_state_metrics" {
+resource "kubernetes_cluster_role" "ping_metrics" {
   metadata {
-    name = "kube-state-metrics"
-    #namespace = "kube-system"
+    name = "ping-metrics"
     labels = {
-      app = "kube-state-metrics"
+      app = "ping-metrics"
     }
   }
 
@@ -74,7 +73,6 @@ resource "kubernetes_cluster_role" "kube_state_metrics" {
     verbs      = ["list", "watch"]
   }
 
-
   rule {
     api_groups = ["networking.k8s.io"]
     resources  = ["networkpolicies"]
@@ -82,12 +80,11 @@ resource "kubernetes_cluster_role" "kube_state_metrics" {
   }
 }
 
-resource "kubernetes_cluster_role" "cadvisor" {
+resource "kubernetes_cluster_role" "node_exporter" {
   metadata {
-    name = "cadvisor"
-    #namespace = "kube-system"
+    name = "node-exporter"
     labels = {
-      app = "cadvisor"
+      app = "node-exporter"
     }
   }
 

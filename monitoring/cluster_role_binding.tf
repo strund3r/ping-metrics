@@ -1,37 +1,37 @@
-resource "kubernetes_cluster_role_binding" "kube_state_metrics" {
+resource "kubernetes_cluster_role_binding" "ping_metrics" {
   metadata {
-    name = "kube-state-metrics"
+    name = "ping-metrics"
     labels = {
-      app = "kube-state-metrics"
+      app = "ping-metrics"
     }
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = "kube-state-metrics"
+    name      = "ping-metrics"
   }
   subject {
-    kind = "ServiceAccount"
-    name = "kube-state-metrics"
-    #namespace = var.k8s_namespace
+    kind      = "ServiceAccount"
+    name      = "ping-metrics"
+    namespace = var.k8s_namespace
   }
 }
 
-resource "kubernetes_cluster_role_binding" "cadvisor" {
+resource "kubernetes_cluster_role_binding" "node_exporter" {
   metadata {
-    name = "cadvisor"
+    name = "node-exporter"
     labels = {
-      app = "cadvisor"
+      app = "node-exporter"
     }
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = "cadvisor"
+    name      = "node-exporter"
   }
   subject {
-    kind = "ServiceAccount"
-    name = "cadvisor"
-    #namespace = var.k8s_namespace
+    kind      = "ServiceAccount"
+    name      = "node-exporter"
+    namespace = var.k8s_namespace
   }
 }
