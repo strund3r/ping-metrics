@@ -46,7 +46,7 @@ terraform destroy
 | aws\_profile | Name of AWS profile in AWS shared credentials file or AWS shared configuration file. | `string` | `"default"` | no |
 | aws\_region | AWS region. | `string` | `"us-east-1"` | no |
 | eks\_cluster\_name | Name of the EKS cluster. | `string` | `"eks-cluster"` | no |
-| grafana\_auth | Grafana username and password (Usage: user:pass) | `string` | n/a | yes |
+| grafana\_auth | Grafana username and password (Usage: user:pass) | `string` | `"admin:admin"` | no |
 | k8s\_namespace | Kubernetes monitoring namespace | `string` | `"monitoring"` | no |
 
 ## Outputs

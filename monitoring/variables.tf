@@ -31,4 +31,5 @@ variable "eks_cluster_name" {
 variable "grafana_auth" {
   description = "Grafana username and password (Usage: user:pass)"
   type        = string
+  default     = "admin:admin"
 }
