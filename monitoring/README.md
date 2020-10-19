@@ -1,5 +1,9 @@
 # Monitoring
 
+## Known Bug
+
+It's necessary to run `terraform apply` twice on monitoring to deploy the Grafana dashboard.
+
 ## Execute
 
 To execute, just run the following commands:

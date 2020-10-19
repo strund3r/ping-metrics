@@ -8,6 +8,10 @@
 * boto3
 * kubectl
 
+## Known Bug
+
+It's necessary to run `terraform apply` twice on monitoring to deploy the Grafana dashboard.
+
 ## Execute
 
 After installing AWS CLI, run the following command to configure it and enable Terraform access to the configuration file:
